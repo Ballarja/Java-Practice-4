@@ -2,14 +2,17 @@ public class ReturnValues {
 
     public static void main (String args[]){
         double area = calculateArea(4.3, 7.5);
+        printArea(4.3, 7.5, area);
 
         String englishExplanation = explainArea("English");
-        String frenchExplanation = explainArea("French");
-        String spanishExplanation = explainArea("Spanish");
-        String italianExplanation = explainArea("Italian");
+        System.out.println(englishExplanation);
     }
 
     public static double calculateArea(double length, double width){
+        if(length < 0 || width < 0){
+            System.out.println("INVALID DIMENSIONS");
+            System.exit(0);
+        }
         double area = length * width;
         return area;
     }
@@ -21,5 +24,9 @@ public class ReturnValues {
             case "Spanish": return "area es igual a largo * ancho";
             default: return "Language not available";
         }
+    }
+
+    public static void printArea(double length, double width, double area){
+        System.out.println("A rectangle with a length of " + length + "and a width of " + width + " has an area of " + area);
     }
 }
